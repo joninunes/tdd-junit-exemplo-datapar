@@ -3,6 +3,7 @@ package model;
 public class EntidadeJuridica extends Entidade{
 
 	private String ruc;
+	private String joniluisnunes;
 
 	public String getRuc() {
 		return ruc;

@@ -11,5 +11,9 @@ public class EntidadeFisica extends Entidade{
 	public void setIdentidade(String identidade) {
 		this.identidade = identidade;
 	}
+	
+	public boolean identidadeObrigatorio(EntidadeFisica e){
+		return e.getIdentidade().equals("");		
+	}
 
 }

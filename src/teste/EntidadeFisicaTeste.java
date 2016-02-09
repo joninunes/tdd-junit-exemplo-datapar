@@ -6,6 +6,9 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.sun.xml.internal.ws.policy.spi.AssertionCreationException;
+
+import junit.framework.Assert;
 import model.EntidadeFisica;
 
 public class EntidadeFisicaTeste{
@@ -14,40 +17,28 @@ public class EntidadeFisicaTeste{
 
 	@Before
 	public void setUp() throws Exception {
+		
+		e = new EntidadeFisica();
+		e.setNome("Joni Nunes");
+		e.setTelefone("45888888888");
+		e.setNacionalidade("Brasileiro");
+		e.setEndereco("Foz do Iguaçu");
+		//e.setIdentidade("9999999");
 	}
 
 	@After
 	public void tearDown() throws Exception {
 	}
 
+
 	@Test
-	public void test() {
-		criaEntidade();
-		camposObrigatorios();
-		campoIdentidadeObrigatorio();
+	public void nome(){				
+		Assert.assertFalse("NOME deve ser informado", e.nomeObrigatorio(e));
 	}
 
-	private void criaEntidade() {
-		e.setNome("JONI");
-		e.setTelefone("88140524");
-		e.setNacionalidade("Brasileiro");
-		e.setEndereco("Rua Vivaldo de Lima 803");
-		e.setIdentidade("9999999");		
-	}
-	
-	public void camposObrigatorios(){		
-		boolean condition =
-				((e.getEndereco() != null) && 
-				(e.getNacionalidade() != null) &&
-				(e.getNome() != null)  &&
-				(e.getTelefone() != null));
-						
-		assertTrue("Nao informou todos os campos obrigatorios", condition);
-	}
-	
-	public void campoIdentidadeObrigatorio(){
-		boolean condition = e.getIdentidade() != null;
-		assertTrue("Não informou o IDENTIDADE", condition);		
+	@Test
+	public void identidade(){				
+		Assert.assertFalse("IDENTIDADE deve ser informado", e.identidadeObrigatorio(e));
 	}
 	
 

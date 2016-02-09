@@ -31,5 +31,9 @@ public class Entidade {
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
+	
+	public boolean nomeObrigatorio(Entidade e){
+		return e.getNome().equals("");
+	}
 
 }
